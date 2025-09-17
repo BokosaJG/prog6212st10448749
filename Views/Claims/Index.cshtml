@@ -1,0 +1,37 @@
+@model IEnumerable<CMCS_MVC.Models.Claim>
+@{ ViewData["Title"] = "Claims"; }
+<h1>Claims (Prototype Only)</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Lecturer</th>
+            <th>Date</th>
+            <th>Hours</th>
+            <th>Rate</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Document</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach(var c in Model) {
+        <tr>
+            <td>@c.LecturerName</td>
+            <td>@c.ClaimDate.ToLocalTime().ToString("yyyy-MM-dd")</td>
+            <td>@c.HoursWorked</td>
+            <td>@c.HourlyRate</td>
+            <td>@c.Amount</td>
+            <td>@c.Status</td>
+            <td>@(string.IsNullOrEmpty(c.SupportingDocumentPath) ? "-" : c.SupportingDocumentPath)</td>
+            <td>
+                <a class="btn btn-sm btn-outline-primary" href="/Claims/Details/@c.Id">Details</a>
+                <button class="btn btn-sm btn-success" disabled>Verify</button>
+                <button class="btn btn-sm btn-primary" disabled>Approve</button>
+                <button class="btn btn-sm btn-danger" disabled>Reject</button>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

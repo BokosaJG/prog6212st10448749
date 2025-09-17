@@ -1,0 +1,29 @@
+@model CMCS_MVC.Models.Claim
+@{ ViewData["Title"] = "Submit Claim"; }
+<h1>Submit Claim (Prototype Only)</h1>
+
+<form>
+    <div class="mb-3">
+        <label class="form-label">Lecturer Name</label>
+        <input asp-for="LecturerName" class="form-control" />
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Hours Worked</label>
+            <input asp-for="HoursWorked" class="form-control" />
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Hourly Rate</label>
+            <input asp-for="HourlyRate" class="form-control" />
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Notes</label>
+        <textarea asp-for="Notes" class="form-control" rows="4"></textarea>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Supporting Document</label>
+        <input type="file" class="form-control" />
+    </div>
+    <button class="btn btn-primary" disabled>Submit Claim</button>
+</form>
